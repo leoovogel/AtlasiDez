@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AtlasiDez.Application\AtlasiDez.Application.csproj" />
+    <ProjectReference Include="..\AtlasiDez.Infrastructure\AtlasiDez.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
