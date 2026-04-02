@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="AtlasiDez.Api/AtlasiDez.Api.csproj" />
+  <Project Path="AtlasiDez.Application/AtlasiDez.Application.csproj" />
+  <Project Path="AtlasiDez.Domain/AtlasiDez.Domain.csproj" />
+  <Project Path="AtlasiDez.Infrastructure/AtlasiDez.Infrastructure.csproj" />
+  <Project Path="AtlasiDez.Tests/AtlasiDez.Tests.csproj" />
+</Solution>
+

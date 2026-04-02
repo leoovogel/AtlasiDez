@@ -1,0 +1,115 @@
+# Build / Output
+bin/
+obj/
+out/
+publish/
+dist/
+build/
+
+# .NET / Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.cache
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+*.DotSettings.user
+_ReSharper*/
+*.ReSharper
+*.sln.DotSettings
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+logs/
+*.tlog
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Environment variables / secrets
+.env
+.env.*
+*.env
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+# Sensitive files
+*.pfx
+*.key
+*.pem
+*.crt
+*.cer
+*.snk
+
+# Database / local data
+*.mdf
+*.ldf
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker
+docker-compose.override.yml
+*.dockerignore
+
+# Azure / Cloud
+.azure/
+*.publishsettings
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+
+# Coverage / Reports
+coverage/
+*.coveragexml
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# AI tools (Claude, ChatGPT, Copilot, etc.)
+CLAUDE.md
+.claude/
+.claude-cache/
+.claude-history/
+.claude-settings.json
+
+.openai/
+.chatgpt/
+.ai/
+.ai-cache/
+.ai-history/
+
+# Misc
+*.pidb
+*.svclog
+*.scc
+*.psess
+*.vsp
+*.vspx
+
+# Rider local history
+.localhistory/
+
+# Backup files
+*.orig
+*.backup
