@@ -17,14 +17,14 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore AtlasiDez.slnx
+        run: dotnet restore backend/AtlasiDez.slnx
 
       - name: Build
-        run: dotnet build AtlasiDez.slnx --configuration Release --no-restore
+        run: dotnet build backend/AtlasiDez.slnx --configuration Release --no-restore
 
       - name: Test
         run: >
-          dotnet test AtlasiDez.Tests/AtlasiDez.Tests.csproj
+          dotnet test backend/AtlasiDez.Tests/AtlasiDez.Tests.csproj
           --configuration Release
           --no-build
           --verbosity normal
@@ -49,7 +49,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./backend
           push: true
           tags: |
             ghcr.io/${{ github.repository_owner }}/atlasidez:latest

@@ -18,14 +18,14 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore AtlasiDez.slnx
+        run: dotnet restore backend/AtlasiDez.slnx
 
       - name: Build
-        run: dotnet build AtlasiDez.slnx --configuration Release --no-restore
+        run: dotnet build backend/AtlasiDez.slnx --configuration Release --no-restore
 
       - name: Test with coverage
         run: >
-          dotnet test AtlasiDez.Tests/AtlasiDez.Tests.csproj
+          dotnet test backend/AtlasiDez.Tests/AtlasiDez.Tests.csproj
           --configuration Release
           --no-build
           --verbosity normal
