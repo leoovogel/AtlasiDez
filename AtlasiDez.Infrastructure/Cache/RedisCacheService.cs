@@ -1,13 +1,15 @@
 using System.Text.Json;
 using AtlasiDez.Application.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace AtlasiDez.Infrastructure.Cache;
 
 public class RedisCacheService(
     IDistributedCache distributedCache,
-    IOptions<CacheOptions> cacheOptions) : ICacheService
+    IOptions<CacheOptions> cacheOptions,
+    ILogger<RedisCacheService> logger) : ICacheService
 {
     private readonly TimeSpan _defaultExpiration = TimeSpan.FromHours(cacheOptions.Value.ExpirationInHours);
 
@@ -23,7 +25,7 @@ public class RedisCacheService(
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Falha ao obter valor do cache Redis para a chave '{key}': {ex.Message}");
+            logger.LogWarning(ex, "Falha ao obter valor do cache Redis para a chave '{CacheKey}'", key);
             return default;
         }
     }
@@ -43,7 +45,7 @@ public class RedisCacheService(
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Falha ao definir valor no cache Redis para a chave '{key}': {ex.Message}");
+            logger.LogWarning(ex, "Falha ao definir valor no cache Redis para a chave '{CacheKey}'", key);
         }
     }
 }

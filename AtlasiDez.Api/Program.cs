@@ -1,5 +1,6 @@
 using System.Text.Json;
 using AtlasiDez.Api.Endpoints;
+using AtlasiDez.Api.Middleware;
 using AtlasiDez.Application;
 using AtlasiDez.Infrastructure;
 
@@ -15,6 +16,8 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 });
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
