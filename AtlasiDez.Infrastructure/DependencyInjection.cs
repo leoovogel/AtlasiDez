@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using AtlasiDez.Application.Interfaces;
 using AtlasiDez.Domain.Interfaces;
 using AtlasiDez.Infrastructure.Cache;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AtlasiDez.Infrastructure;
 
+[ExcludeFromCodeCoverage]
 public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)

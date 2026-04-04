@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Json;
 using System.Text.Json.Serialization;
 using AtlasiDez.Domain.Entities;
@@ -5,6 +6,7 @@ using AtlasiDez.Domain.Interfaces;
 
 namespace AtlasiDez.Infrastructure.Providers;
 
+[ExcludeFromCodeCoverage]
 public class BrasilApiCityProvider(HttpClient httpClient) : ICityProvider
 {
     public async Task<IEnumerable<City>> GetByStateAsync(string uf)
