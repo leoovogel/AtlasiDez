@@ -34,8 +34,8 @@ public class GetCitiesByStateUseCaseTests
 
         var result = await _getCitiesByStateUseCase.ExecuteAsync("RS", page: 1, pageSize: 10);
 
-        Assert.Equal(2, result.TotalCount);
-        Assert.Equal(2, result.Items.Count);
+        Assert.Equal(4, result.TotalCount);
+        Assert.Equal(4, result.Items.Count);
         await _cityProvider.DidNotReceive().GetByStateAsync(Arg.Any<string>());
     }
 
@@ -58,7 +58,7 @@ public class GetCitiesByStateUseCaseTests
 
         var result = await _getCitiesByStateUseCase.ExecuteAsync("RS", page: 1, pageSize: 10);
 
-        Assert.Equal(2, result.TotalCount);
+        Assert.Equal(4, result.TotalCount);
         await _cacheService.Received(1).SetAsync(
             "cities:uf:rs",
             Arg.Any<List<City>>(),
