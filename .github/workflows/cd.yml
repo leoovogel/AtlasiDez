@@ -1,0 +1,73 @@
+name: CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 10.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore AtlasiDez.slnx
+
+      - name: Build
+        run: dotnet build AtlasiDez.slnx --configuration Release --no-restore
+
+      - name: Test
+        run: >
+          dotnet test AtlasiDez.Tests/AtlasiDez.Tests.csproj
+          --configuration Release
+          --no-build
+          --verbosity normal
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/atlasidez:latest
+            ghcr.io/${{ github.repository_owner }}/atlasidez:${{ github.sha }}
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure Container Apps
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          containerAppName: atlasidez-api
+          resourceGroup: atlasidez-rg
+          imageToDeploy: ghcr.io/${{ github.repository_owner }}/atlasidez:${{ github.sha }}
+          targetPort: 8080
+          environmentVariables: >
+            ASPNETCORE_ENVIRONMENT=Production
+            CityProvider=Ibge
+            Cache__RedisConnectionString=secretref:redis-conn
