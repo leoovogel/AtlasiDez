@@ -1,19 +1,22 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
-using AtlasiDez.Api.Endpoints;
 using AtlasiDez.Api.Middleware;
 using AtlasiDez.Application;
 using AtlasiDez.Infrastructure;
 
+[assembly: ExcludeFromCodeCoverage]
+
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddOpenApi();
+builder.Services.AddSwaggerGen();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.ConfigureHttpJsonOptions(options =>
-{
-    options.SerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower;
-});
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower;
+    });
 
 var app = builder.Build();
 
@@ -21,9 +24,10 @@ app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-app.MapCityEndpoints();
+app.MapControllers();
 
 app.Run();
