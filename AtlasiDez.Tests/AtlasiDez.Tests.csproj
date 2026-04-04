@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AtlasiDez.Api\AtlasiDez.Api.csproj" />
     <ProjectReference Include="..\AtlasiDez.Application\AtlasiDez.Application.csproj" />
     <ProjectReference Include="..\AtlasiDez.Infrastructure\AtlasiDez.Infrastructure.csproj" />
   </ItemGroup>
