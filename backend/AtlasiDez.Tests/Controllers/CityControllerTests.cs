@@ -39,7 +39,7 @@ public class CityControllerTests
 
         var okResult = Assert.IsType<OkObjectResult>(result);
         var pagedResult = Assert.IsType<PagedResult<City>>(okResult.Value);
-        Assert.Equal(4, pagedResult.TotalCount);
+        Assert.Equal(5, pagedResult.TotalCount);
         Assert.Equal(4, pagedResult.Items.Count);
     }
 
