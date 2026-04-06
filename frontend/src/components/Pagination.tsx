@@ -82,8 +82,8 @@ function PageButton({
         width: '30px',
         height: '30px',
         minWidth: '30px',
-        background: active ? '#00d4ff' : '#21262d',
-        color: active ? '#0d1117' : '#e6edf3',
+        background: active ? '#FA5A3D' : '#333333',
+        color: active ? '#ffffff' : '#e6edf3',
         fontWeight: active ? 600 : 400,
       }}
     >
@@ -113,7 +113,7 @@ function NavButton({
         height: '30px',
         minWidth: '30px',
         background: 'transparent',
-        color: disabled ? '#484f58' : '#8b949e',
+        color: disabled ? '#555555' : '#8b949e',
       }}
       {...props}
     >
