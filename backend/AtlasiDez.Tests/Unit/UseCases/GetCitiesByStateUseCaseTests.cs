@@ -4,7 +4,7 @@ using AtlasiDez.Domain.Entities;
 using AtlasiDez.Domain.Interfaces;
 using NSubstitute;
 
-namespace AtlasiDez.Tests.UseCases;
+namespace AtlasiDez.Tests.Unit.UseCases;
 
 public class GetCitiesByStateUseCaseTests
 {

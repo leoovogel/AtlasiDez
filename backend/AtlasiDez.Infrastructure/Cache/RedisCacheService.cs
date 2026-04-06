@@ -11,7 +11,7 @@ public class RedisCacheService(
     IOptions<CacheOptions> cacheOptions,
     ILogger<RedisCacheService> logger) : ICacheService
 {
-    private readonly TimeSpan _defaultExpiration = TimeSpan.FromHours(cacheOptions.Value.ExpirationInHours);
+    private readonly TimeSpan _defaultExpiration = TimeSpan.FromMinutes(cacheOptions.Value.ExpirationInMinutes);
 
     public async Task<T?> GetAsync<T>(string key)
     {
