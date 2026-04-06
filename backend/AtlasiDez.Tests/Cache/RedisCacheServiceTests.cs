@@ -12,8 +12,7 @@ namespace AtlasiDez.Tests.Cache;
 public class RedisCacheServiceTests
 {
     private readonly IDistributedCache _distributedCache = Substitute.For<IDistributedCache>();
-    private readonly IOptions<CacheOptions> _cacheOptions =
-        Options.Create(new CacheOptions { ExpirationInHours = 24 });
+    private readonly IOptions<CacheOptions> _cacheOptions = Options.Create(new CacheOptions { ExpirationInMinutes = 5 });
     private readonly ILogger<RedisCacheService> _logger = Substitute.For<ILogger<RedisCacheService>>();
     private readonly RedisCacheService _redisCacheService;
 
@@ -87,7 +86,7 @@ public class RedisCacheServiceTests
             "test-key",
             Arg.Any<byte[]>(),
             Arg.Is<DistributedCacheEntryOptions>(o =>
-                o.AbsoluteExpirationRelativeToNow == TimeSpan.FromHours(24)),
+                o.AbsoluteExpirationRelativeToNow == TimeSpan.FromMinutes(5)),
             Arg.Any<CancellationToken>());
     }
 
