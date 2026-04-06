@@ -17,12 +17,12 @@ export default function App() {
   }, [])
 
   return (
-    <div className="h-screen flex flex-col" style={{ background: '#0d1117' }}>
+    <div className="h-screen flex flex-col" style={{ background: '#1a1a1a' }}>
       <header
         className="flex items-center justify-center px-8 py-5 shrink-0"
         style={{
-          background: '#0d1117',
-          borderBottom: '1px solid #21262d',
+          background: '#1a1a1a',
+          borderBottom: '1px solid #3a3a3a',
         }}
       >
         <div className="flex items-center gap-3">

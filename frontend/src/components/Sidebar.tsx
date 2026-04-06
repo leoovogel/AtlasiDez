@@ -98,15 +98,15 @@ export default function Sidebar({ selectedState }: SidebarProps) {
       style={{
         width: '380px',
         minWidth: '380px',
-        background: '#161b22',
-        borderLeft: '1px solid #21262d',
+        background: '#262626',
+        borderLeft: '1px solid #3a3a3a',
       }}
     >
       {!selectedState ? (
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center px-8">
             <div className="text-4xl mb-3 opacity-40">🗺️</div>
-            <p className="text-sm" style={{ color: '#484f58' }}>
+            <p className="text-sm" style={{ color: '#555555' }}>
               Selecione um estado no mapa para ver suas cidades
             </p>
           </div>
@@ -116,14 +116,14 @@ export default function Sidebar({ selectedState }: SidebarProps) {
           <div
             className="px-6 py-4 text-center"
             style={{
-              borderBottom: '1px solid #21262d',
-              borderTop: '1px solid #21262d',
+              borderBottom: '1px solid #3a3a3a',
+              borderTop: '1px solid #3a3a3a',
             }}
           >
             <div className="flex items-center justify-center gap-2 mb-2">
               <div
                 className="w-2.5 h-2.5 rounded-full"
-                style={{ background: '#00d4ff' }}
+                style={{ background: '#FA5A3D' }}
               />
               <span
                 className="text-lg font-semibold"
@@ -142,13 +142,13 @@ export default function Sidebar({ selectedState }: SidebarProps) {
             <div
               className="flex items-center gap-3 rounded-xl"
               style={{
-                background: '#0d1117',
-                border: '1px solid #30363d',
+                background: '#1a1a1a',
+                border: '1px solid #444444',
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2)',
                 padding: '10px 16px',
               }}
             >
-              <span className="text-sm" style={{ color: '#484f58' }}>
+              <span className="text-sm" style={{ color: '#555555' }}>
                 🔍
               </span>
               <input
@@ -175,7 +175,7 @@ export default function Sidebar({ selectedState }: SidebarProps) {
           <div
             className="flex items-center justify-between shrink-0"
             style={{
-              borderTop: '1px solid #21262d',
+              borderTop: '1px solid #3a3a3a',
               padding: '12px 16px',
             }}
           >
@@ -184,14 +184,14 @@ export default function Sidebar({ selectedState }: SidebarProps) {
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="flex items-center gap-2 rounded-lg text-sm font-medium transition-colors duration-150 cursor-pointer"
                 style={{
-                  background: '#21262d',
-                  border: '1px solid #30363d',
+                  background: '#333333',
+                  border: '1px solid #444444',
                   color: '#e6edf3',
                   padding: '8px 14px',
                 }}
               >
                 <span style={{ color: '#8b949e' }}>Exibir:</span>
-                <span style={{ color: '#00d4ff' }}>{pageSize}</span>
+                <span style={{ color: '#FA5A3D' }}>{pageSize}</span>
                 <svg
                   width="10"
                   height="6"
@@ -211,8 +211,8 @@ export default function Sidebar({ selectedState }: SidebarProps) {
                 <div
                   className="absolute bottom-full left-0 mb-2 rounded-lg overflow-hidden"
                   style={{
-                    background: '#1c2128',
-                    border: '1px solid #30363d',
+                    background: '#2e2e2e',
+                    border: '1px solid #444444',
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5)',
                     minWidth: '120px',
                     zIndex: 50,
@@ -224,9 +224,9 @@ export default function Sidebar({ selectedState }: SidebarProps) {
                       onClick={() => handlePageSizeChange(size)}
                       className="w-full text-left text-sm font-medium transition-colors duration-100 cursor-pointer"
                       style={{
-                        background: size === pageSize ? 'rgba(0, 212, 255, 0.1)' : 'transparent',
-                        color: size === pageSize ? '#00d4ff' : '#e6edf3',
-                        borderLeft: size === pageSize ? '2px solid #00d4ff' : '2px solid transparent',
+                        background: size === pageSize ? 'rgba(250, 90, 61, 0.1)' : 'transparent',
+                        color: size === pageSize ? '#FA5A3D' : '#e6edf3',
+                        borderLeft: size === pageSize ? '2px solid #FA5A3D' : '2px solid transparent',
                         padding: '8px 16px',
                       }}
                       onMouseEnter={(e) => {
@@ -235,7 +235,7 @@ export default function Sidebar({ selectedState }: SidebarProps) {
                         }
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.background = size === pageSize ? 'rgba(0, 212, 255, 0.1)' : 'transparent'
+                        e.currentTarget.style.background = size === pageSize ? 'rgba(250, 90, 61, 0.1)' : 'transparent'
                       }}
                     >
                       {size} itens

@@ -78,7 +78,7 @@ function BrazilMap({ selectedState, onStateSelect }: BrazilMapProps) {
               const center = SUBJECT_OVERRIDE[uf] || rawCenter
               const labelStyle = {
                 fontSize: 10,
-                fill: isSelected ? '#00d4ff' : '#8b949e',
+                fill: isSelected ? '#FA5A3D' : '#8b949e',
                 fontWeight: isSelected ? 700 : 400,
               }
 
@@ -92,22 +92,22 @@ function BrazilMap({ selectedState, onStateSelect }: BrazilMapProps) {
                   className="cursor-pointer outline-none focus:outline-none"
                   style={{
                     default: {
-                      fill: isSelected ? 'rgba(0, 212, 255, 0.25)' : '#1a2332',
-                      stroke: isSelected ? '#00d4ff' : '#2d4a6f',
+                      fill: isSelected ? 'rgba(250, 90, 61, 0.25)' : '#2a2a2a',
+                      stroke: isSelected ? '#FA5A3D' : '#4a4a4a',
                       strokeWidth: isSelected ? 1.5 : 0.5,
                       transition: 'all 0.2s ease',
                     },
                     hover: {
                       fill: isSelected
-                        ? 'rgba(0, 212, 255, 0.35)'
-                        : 'rgba(0, 212, 255, 0.12)',
-                      stroke: '#00d4ff',
+                        ? 'rgba(250, 90, 61, 0.35)'
+                        : 'rgba(250, 90, 61, 0.12)',
+                      stroke: '#F57862',
                       strokeWidth: 1,
                       transition: 'all 0.2s ease',
                     },
                     pressed: {
-                      fill: 'rgba(0, 212, 255, 0.4)',
-                      stroke: '#00d4ff',
+                      fill: 'rgba(250, 90, 61, 0.4)',
+                      stroke: '#FA5A3D',
                       strokeWidth: 1.5,
                     },
                   }}
@@ -122,7 +122,7 @@ function BrazilMap({ selectedState, onStateSelect }: BrazilMapProps) {
                     dx={SMALL_UF_POSITION[uf][0] - center[0]}
                     dy={SMALL_UF_POSITION[uf][1] - center[1]}
                     connectorProps={{
-                      stroke: isSelected ? '#00d4ff' : '#3a5a7c',
+                      stroke: isSelected ? '#FA5A3D' : '#555555',
                       strokeWidth: 0.5,
                     }}
                   >
@@ -188,12 +188,12 @@ function BrazilMap({ selectedState, onStateSelect }: BrazilMapProps) {
           style={{
             left: tooltipPos.x + 12,
             top: tooltipPos.y - 10,
-            background: '#161b22',
-            border: '1px solid #00d4ff',
+            background: '#262626',
+            border: '1px solid #FA5A3D',
             boxShadow: '0 4px 12px rgba(0,0,0,0.4)',
           }}
         >
-          <span className="font-semibold" style={{ color: '#00d4ff' }}>
+          <span className="font-semibold" style={{ color: '#FA5A3D' }}>
             {STATE_NAMES[hoveredState] || hoveredState}
           </span>
           <span className="text-gray-400 ml-2 text-xs">({hoveredState})</span>

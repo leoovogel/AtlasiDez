@@ -14,7 +14,7 @@ function CityItem({ city }: { city: City }) {
     <div
       className="rounded-lg transition-colors duration-150 cursor-default"
       style={{
-        background: hovered ? 'rgba(0, 212, 255, 0.06)' : 'rgba(255,255,255,0.025)',
+        background: hovered ? 'rgba(250, 90, 61, 0.06)' : 'rgba(255,255,255,0.025)',
         margin: '2px 16px',
         padding: '8px 16px',
       }}
@@ -31,7 +31,7 @@ function CityItem({ city }: { city: City }) {
           opacity: hovered ? 1 : 0,
         }}
       >
-        <span className="text-xs mt-1 block" style={{ color: '#00d4ff' }}>
+        <span className="text-xs mt-1 block" style={{ color: '#FA5A3D' }}>
           IBGE: {city.ibge_code}
         </span>
       </div>
@@ -52,7 +52,7 @@ export default function CityList({ cities, loading, skeletonCount }: CityListPro
             <div
               className="h-4 rounded"
               style={{
-                background: '#21262d',
+                background: '#333333',
               }}
             />
           </div>
@@ -64,7 +64,7 @@ export default function CityList({ cities, loading, skeletonCount }: CityListPro
   if (cities.length === 0) {
     return (
       <div className="flex-1 flex items-center justify-center px-6">
-        <p className="text-sm" style={{ color: '#484f58' }}>
+        <p className="text-sm" style={{ color: '#555555' }}>
           Nenhuma cidade encontrada
         </p>
       </div>
