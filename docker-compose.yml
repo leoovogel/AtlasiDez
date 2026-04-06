@@ -14,3 +14,10 @@ services:
     image: redis:7-alpine
     ports:
       - "6379:6379"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api

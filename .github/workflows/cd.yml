@@ -29,7 +29,7 @@ jobs:
           --no-build
           --verbosity normal
 
-  deploy:
+  deploy-backend:
     needs: build-and-test
     runs-on: ubuntu-latest
     permissions:
@@ -71,3 +71,37 @@ jobs:
             ASPNETCORE_ENVIRONMENT=Production
             CityProvider=Ibge
             Cache__RedisConnectionString=secretref:redis-conn
+            Cors__AllowedOrigins__0=secretref:frontend-url
+
+  deploy-frontend:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+        working-directory: frontend
+
+      - name: Build
+        env:
+          VITE_API_URL: https://atlasidez-api.proudriver-27e08694.brazilsouth.azurecontainerapps.io
+        run: npm run build
+        working-directory: frontend
+
+      - name: Deploy to Azure Static Web Apps
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: upload
+          app_location: frontend
+          output_location: dist
+          skip_app_build: true

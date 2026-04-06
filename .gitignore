@@ -99,6 +99,10 @@ CLAUDE.md
 .ai-cache/
 .ai-history/
 
+# Frontend
+node_modules/
+.superpowers/
+
 # Misc
 *.pidb
 *.svclog
