@@ -15,7 +15,8 @@ export async function fetchCities(
     params.set('name', name.trim())
   }
 
-  const response = await fetch(`/api/cities/${uf}?${params}`)
+  const baseUrl = import.meta.env.VITE_API_URL || ''
+  const response = await fetch(`${baseUrl}/api/cities/${uf}?${params}`)
 
   if (!response.ok) {
     const error = await response.json().catch(() => null)
