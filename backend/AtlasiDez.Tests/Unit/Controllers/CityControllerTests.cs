@@ -7,7 +7,7 @@ using AtlasiDez.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 
-namespace AtlasiDez.Tests.Controllers;
+namespace AtlasiDez.Tests.Unit.Controllers;
 
 public class CityControllerTests
 {

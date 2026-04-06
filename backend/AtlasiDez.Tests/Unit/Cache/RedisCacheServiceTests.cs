@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 using NSubstitute;
 using NSubstitute.ExceptionExtensions;
 
-namespace AtlasiDez.Tests.Cache;
+namespace AtlasiDez.Tests.Unit.Cache;
 
 public class RedisCacheServiceTests
 {

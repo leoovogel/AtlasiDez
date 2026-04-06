@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
 
-namespace AtlasiDez.Tests.Middleware;
+namespace AtlasiDez.Tests.Unit.Middleware;
 
 public class ExceptionHandlingMiddlewareTests
 {
