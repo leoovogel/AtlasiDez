@@ -8,9 +8,9 @@ namespace AtlasiDez.Api.Controllers;
 public class CityController(GetCitiesByStateUseCase useCase) : ControllerBase
 {
     [HttpGet("{uf}")]
-    public async Task<IActionResult> GetByState(string uf, int page = 1, int pageSize = 10)
+    public async Task<IActionResult> GetByState(string uf, int page = 1, int pageSize = 10, string? name = null)
     {
-        var result = await useCase.ExecuteAsync(uf, page, pageSize);
+        var result = await useCase.ExecuteAsync(uf, page, pageSize, name);
         return Ok(result);
     }
 }
